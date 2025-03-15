@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Tập Tuần 5</title>
+</head>
+<body>
+    <form style="width: 550px;;background-color: whitesmoke; line-height: 2.4; border: 1px solid black; padding: 20px;">
+        
+        <label style="font-weight: bold;font-size: large;">THÊM SẢN PHẨM MỚI</label><br>
+
+        <table style="width: 100%;">
+            <colgroup>
+                <col style="width: 20%;">
+                <col style="width: 80%;">
+            </colgroup>
+            <tr>
+                <td><label style="font-weight: bold;" for="maSP">Mã sản phẩm</label></td>
+                <td><input style="height: 30px;" type="text" id="maSP" name="maSP" required></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="tenSP">Tên sản phẩm</label></td>
+                <td><input style="height: 30px;" type="text" id="tenSP" name="tenSP" required><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="hinhAnh">Hình ảnh</label></td>
+                <td><input style="height: 30px;" type="file" id="hinhAnh" name="hinhAnh" accept="image/*"><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="hangSX">Hãng sản xuất</label></td>
+                <td><select id="hangSX" name="hangSX">
+                    <option>Thiên Long</option>
+                    <option>Faber-Castell</option>
+                    <option>Staedtler</option>
+                </select><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="kichThuoc">Kích thước</label></td>
+                <td>W: <input style="height: 30px;" type="number" id="kichThuocW" name="kichThuocW"> 
+                    H: <input style="height: 30px;" type="number" id="kichThuocH" name="kichThuocH"> mm<br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="soTrang">Số trang</label></td>
+                <td><input style="height: 30px;" type="number" id="soTrang" name="soTrang">
+                    <label for="soTrang">trang</label><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="tacGia">Tác giả</label></td>
+                <td><input style="height: 30px;" type="text" id="tacGia" name="tacGia"><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="gia">Giá</label></td>
+                <td><input style="height: 30px;" type="text" id="gia" name="gia" required>
+                    <label style="font-weight: bold;" for="mau">Màu</label>
+                    <input type="color" id="mau" name="mau"><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="xuatXu">Xuất xứ</label></td>
+                <td><select style="width: 170px;" id="xuatXu" name="xuatXu">
+                    <option>Không có</option>
+                    <option>Việt Nam</option>
+                    <option>Mỹ</option>
+                    <option>Nhật Bản</option>
+                </select><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" >Thể loại</label></td>
+                <td><table>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="vanHoc" name="theLoai" value="Văn học">
+                            <label for="vanHoc">Văn học</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="kinhTe" name="theLoai" value="Kinh tế">
+                            <label for="kinhTe">Kinh tế</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="tamLy" name="theLoai" value="Tâm lý">
+                            <label for="tamLy">Tâm lý</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="thieuNhi" name="theLoai" value="Thiếu nhi">
+                            <label for="thieuNhi">Thiếu nhi</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="giaoKhoa" name="theLoai" value="Giáo khoa">
+                            <label for="giaoKhoa">Giáo khoa</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="ngoaiNgu" name="theLoai" value="Ngoại ngữ">
+                            <label for="ngoaiNgu">Ngoại ngữ</label>
+                        </td>
+                    </tr>
+                </table></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;text-align: center;" for="moTa">Mô tả chi tiết</label></td>
+                <td><textarea id="moTa" name="moTa" rows="4" style="width: 300px;height: 120px;">Paperback - 10th Edition (With 1 Year's Access To Both Premium Online And App</textarea></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
