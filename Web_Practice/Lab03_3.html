@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BookStore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Dancing+Script:wght@600&family=Kanit&family=Lora:wght@500;600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="path/to/fork-awesome/css/fork-awesome.min.css">
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+
+    <div id="container">
+
+        <!-- Hình Banner hoặc Logo  -->
+        <div id="header">
+            <div id="banner_logo">
+                <a href="#"> <img src="images/bookstoreBanner.jpg"  alt="" style="border-radius: 10px;" width="1000px" height="300px" ></a>
+            </div>
+        </div>
+
+        <!-- MENU CHÍNH  -->
+        <div id="menu">
+            <div id="menu_left_corner"></div>
+
+            <div id="menu_content">
+                <ul id="hmenu">
+                    <li>
+                        <a href="#"><img src="images/layout/home.png" /> TRANG CHỦ</a>
+                    </li>
+                    <li class="devider">&nbsp;</li>
+                    <li>
+                        <a href="https://www.youtube.com/embed/vNfs7VU_hrQ?si=IiHS2s2CJiQwjR-G" target="framee"><img src="images/layout/services.png" /> DỊCH VỤ</a>
+                    </li>
+                    <li class="devider">&nbsp;</li>
+                    <li>
+                        <a href="#"><img src="images/layout/favs.png" /> TIN KHUYẾN MÃI</a>
+                    </li>
+                    <li class="devider">&nbsp;</li>
+                    <li>
+                        <a href="#"><img src="images/layout/car.png" /> GIAO HÀNG</a>
+                    </li>
+                    <li class="devider">&nbsp;</li>
+                    <li>
+                        <a href="/Vi_du/index.html" target="framee"><img src="images/layout/user_add.png" /> ĐĂNG NHẬP</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="menu_right_corner"></div>
+            <div style="clear:both"></div>
+        </div>
+
+        <div id="path"></div>
+        <div id="main">
+
+            <!-- MENU bên trái -->
+            <div id="left">
+                <div class="title">Loại sản phẩm</div>
+                <ul class="categories">
+
+                    <li class="lmenu1">
+                        <a href=""> <img src="images/layout/checked.png" /> &nbsp;&nbsp;Văn Học</a>
+                    </li>
+                    <li class="lmenu2">
+                        <a href=""> <img src="images/layout/checked.png" /> &nbsp;&nbsp;Kinh Tế</a>
+                    </li>
+                    <li class="lmenu1">
+                        <a href=""> <img src="images/layout/checked.png" /> &nbsp;&nbsp;Tâm Lý</a>
+                    </li>
+                    <li class="lmenu2">
+                        <a href=""> <img src="images/layout/checked.png" /> &nbsp;&nbsp;Thiếu Nhi</a>
+                    </li>
+                    <li class="lmenu1">
+                        <a href=""> <img src="images/layout/checked.png" /> &nbsp;&nbsp;Giáo Khoa</a>
+                    </li>
+                    <li class="lmenu2">
+                        <a href=""> <img src="images/layout/checked.png" /> &nbsp;&nbsp;Ngoại Ngữ</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+
+            <!-- CONTENT hiển thị ở giữa  -->
+            <div id="content">
+                <form name="frmdangkithanhvien" action="./php/xl_lab03_bai3.php" method="post" enctype="multipart/form-data">
+                    
+        <label style="font-weight: bold;font-size: large;">THÊM SẢN PHẨM MỚI</label><br>
+
+        <table style="width: 100%;">
+            <colgroup>
+                <col style="width: 20%;">
+                <col style="width: 80%;">
+            </colgroup>
+            <tr>
+                <td><label style="font-weight: bold;" for="maSP">Mã sản phẩm</label></td>
+                <td><input style="height: 30px;" type="text" id="maSP" name="nmProID" required></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="tenSP">Tên sản phẩm</label></td>
+                <td><input style="height: 30px;" type="text" id="tenSP" name="nmProName" required><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="hinhAnh">Hình ảnh</label></td>
+                <td><input style="height: 30px;" type="file" id="hinhAnh" name="nmProImg" accept="image/*"><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="hangSX">Hãng sản xuất</label></td>
+                <td><select id="hangSX" name="nmMan">
+                    <option>Thiên Long</option>
+                    <option>Faber-Castell</option>
+                    <option>Staedtler</option>
+                </select><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="kichThuoc">Kích thước</label></td>
+                <td>W: <input style="height: 30px;" type="number" id="kichThuocW" name="nmWidth"> 
+                    H: <input style="height: 30px;" type="number" id="kichThuocH" name="nmHeight"> mm<br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="soTrang">Số trang</label></td>
+                <td><input style="height: 30px;" type="number" id="soTrang" name="nmCount">
+                    <label for="soTrang">trang</label><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="tacGia">Tác giả</label></td>
+                <td><input style="height: 30px;" type="text" id="tacGia" name="nmTacGia"><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="gia">Giá</label></td>
+                <td><input style="height: 30px;" type="text" id="gia" name="nmPrice" required>
+                    <label style="font-weight: bold;" for="mau">Màu</label>
+                    <input type="color" id="mau" name="nmColor"><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" for="xuatXu">Xuất xứ</label></td>
+                <td><select style="width: 170px;" id="xuatXu" name="nmLive">
+                    <option>Không có</option>
+                    <option>Việt Nam</option>
+                    <option>Mỹ</option>
+                    <option>Nhật Bản</option>
+                </select><br></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;" >Thể loại</label></td>
+                <td><table>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="vanHoc" name="theLoai" value="Văn học">
+                            <label for="vanHoc">Văn học</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="kinhTe" name="theLoai" value="Kinh tế">
+                            <label for="kinhTe">Kinh tế</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="tamLy" name="theLoai" value="Tâm lý">
+                            <label for="tamLy">Tâm lý</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="thieuNhi" name="theLoai" value="Thiếu nhi">
+                            <label for="thieuNhi">Thiếu nhi</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="giaoKhoa" name="theLoai" value="Giáo khoa">
+                            <label for="giaoKhoa">Giáo khoa</label>
+                        </td>
+                        <td>
+                            <input type="checkbox" id="ngoaiNgu" name="theLoai" value="Ngoại ngữ">
+                            <label for="ngoaiNgu">Ngoại ngữ</label>
+                        </td>
+                    </tr>
+                    
+                </table></td>
+            </tr>
+            <tr>
+                <td><label style="font-weight: bold;text-align: center;" for="moTa">Mô tả chi tiết</label></td>
+                <td><textarea id="moTa" name="nmProDet" rows="4" style="width: 300px;height: 120px;">Paperback - 10th Edition (With 1 Year's Access To Both Premium Online And App</textarea></td>
+            </tr>
+
+            
+            <tr>
+                <td colspan="2" align="center"><br/><input type="submit" name="nmSubmit" value="Đăng ký" /> 
+                  <input type="reset" name="nmReset" value="Xóa" /> </td>
+              </tr>
+        </table>
+                </form>
+            </div>
+
+            <!-- MENU bên phải  -->
+            <div id="right">
+                <!-- Cần bổ sung thêm (tương tự như <div id="left"> ) -->
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
