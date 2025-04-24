@@ -4,30 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body a{
+            text-decoration: none;
+        }
+        body ul li{
+            list-style: none;
+            padding: 8px;
+        }
+        body{
+            background-color: beige;
+        }
+
+        .container{
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .container>*{
+            flex: 1 100%;
+        }
+
+        .menuleft{
+            padding: 15px;
+            display: inline;
+            background-color: bisque;
+            flex: 2;
+            order: 1;
+        }
+
+        .content{
+            width: 100%;
+            flex: 10;
+            order: 2;
+        }
+    </style>
 </head>
 <body>
-    <h2>Web lớp lý thuyết</h2>
-    <ul>
-        <li><a href="./Web_Theory/BaitapTuan1_TranQuangThai_DH52201421.html" target="_blank">Bài tập tuần 1</a></li>
-        <li><a href="./Web_Theory/BaitapTuan5_TranQuangThai_DH52201421.html" target="_blank">Bài tập tuần 5</a></li>
-    </ul>
-    <h2>Web lớp thực hành</h2>
-    <ul>
-        <li><a href="./Web_Practice/Lab01.html" target="_blank">Bài tập Lab01</a></li>
-        <li><a href="./Web_Practice/Lab02_1.html" target="_blank">Bài tập Lab02_1</a></li>
-        <li><a href="./Web_Practice/Lab02_2.html" target="_blank">Bài tập Lab02_2</a></li>
-        <li><a href="./Web_Practice/Lab03_1.html" target="_blank">Bài tập Lab03_1</a></li>
-        <li><a href="./Web_Practice/Lab03_2.html" target="_blank">Bài tập Lab03_2</a></li>
-        <li><a href="./Web_Practice/Lab03_3.html" target="_blank">Bài tập Lab03_3</a></li>
-        <li><a href="./Web_Practice/Lab04_1.html" target="_blank">Bài tập Lab04_1</a></li>
-        <li><a href="./Web_Practice/Lab04_2.html" target="_blank">Bài tập Lab04_2</a></li>
-        <li><a href="./Web_Practice/Lab04_3.html" target="_blank">Bài tập Lab04_3</a></li>
-        <li><a href="./Bai_2/index.html" target="_blank">Bài mẫu cho Lab05</a></li>
-        <li><a href="./Web_Practice/Lab05_1.html" target="_blank">Bài tập Lab05_1</a></li>
-    </ul>
-    <h2>Web Design</h2>
-    <ul>
-        <li><a href="./Design_Practice/GuitarStore/index.html" target="_blank">Guitar Store</a></li>
-    </ul>
+    <div class="container">
+        <div class="menuleft">
+            <h2>Web - Lớp lý thuyết</h2>
+            <ul>
+                <li><a href="./Web_Theory/BaitapTuan1_TranQuangThai_DH52201421.html" target="framee">Bài tập tuần 1</a></li>
+                <li><a href="./Web_Theory/BaitapTuan5_TranQuangThai_DH52201421.html" target="framee">Bài tập tuần 5</a></li>
+            </ul>
+            <h2>Web - Lớp thực hành</h2>
+            <ul>
+                <li><a href="./Web_Practice/Lab01.html" target="framee">Bài tập Lab01</a></li>
+                <li><a href="./Web_Practice/Lab02_1.html" target="framee">Bài tập Lab02_1</a></li>
+                <li><a href="./Web_Practice/Lab02_2.html" target="framee">Bài tập Lab02_2</a></li>
+                <li><a href="./Web_Practice/Lab03_1.html" target="framee">Bài tập Lab03_1</a></li>
+                <li><a href="./Web_Practice/Lab03_2.html" target="framee">Bài tập Lab03_2</a></li>
+                <li><a href="./Web_Practice/Lab03_3.html" target="framee">Bài tập Lab03_3</a></li>
+                <li><a href="./Web_Practice/Lab04_1.html" target="framee">Bài tập Lab04_1</a></li>
+                <li><a href="./Web_Practice/Lab04_2.html" target="framee">Bài tập Lab04_2</a></li>
+                <li><a href="./Web_Practice/Lab04_3.html" target="framee">Bài tập Lab04_3</a></li>
+                <li><a href=".//Web_Practice/templates/Bai_2/index.html" target="_blank">Bài mẫu cho Lab05</a></li>
+                <li><a href="./Web_Practice/Lab05_1.html" target="framee">Bài tập Lab05_1</a></li>
+            </ul>
+            <h2>Web Design by Figma</h2>
+            <ul>
+                <li><a href="./Design_Practice/GuitarStore/index.html" target="framee">Guitar Store</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <iframe id="frame" src="./Web_Practice/Lab01.html" height="100%" width="100%" name="framee"></iframe>
+        </div>
+
+    </div>  
 </body>
 </html>
