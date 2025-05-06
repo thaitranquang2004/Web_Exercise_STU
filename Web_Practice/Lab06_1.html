@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 6 Bai1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Menu Ngang */
+      .horizontal-menu {
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        display: flex;
+      }
+
+      .horizontal-menu li {
+        /* font-family: "Bungee Spice", cursive; */
+        margin: 0;
+        padding: 10px;
+        background-color: aquamarine;
+        transition: background-color 0.3s ease-in-out;
+      }
+      .horizontal-menu li a {
+        text-decoration: none;
+      }
+
+      .horizontal-menu li:hover {
+        background-color: #f39c12;
+        border-radius: 5px;
+      }
+      .horizontal-menu li a:hover {
+        font-weight: bold;
+        color: white;
+      }
+
+      /* Menu Doc */
+      .vertical-menu {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .vertical-menu li {
+        font-family: "Bungee Spice", sans-serif;
+        margin: 0;
+        padding: 10px;
+        background-color: #3498db;
+        border-bottom: white solid 1px;
+        transition: background-color 0.3s ease-in-out, filter 0.3s ease-in-out,
+          transform 0.3s ease-in-out;
+      }
+
+      .vertical-menu li:hover {
+        filter: brightness(130%);
+        /* opacity: 0.8; */
+        font-style: italic;
+      }
+
+      .horizontal-menunew {
+        /* margin: 0px; */
+        /* padding: 0px; */
+        background-color: black;
+        overflow: hidden;
+      }
+
+      .horizontal-menunew a {
+        color: white;
+        text-decoration: none;
+        float: left;
+        display: block;
+        text-align: center;
+        padding: 14px 30px;
+      }
+
+      .horizontal-menunew a:hover {
+        color: black;
+        background-color: aliceblue;
+      }
+
+      @media screen and (max-width: 600px) {
+        /* .horizontal-menu {
+        flex-direction: column;
+	    } */
+
+        .horizontal-menunew a {
+          float: none;
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Menu Ngang -->
+    <div class="horizontal-menunew">
+      <a href="">Trang chủ</a>
+      <a href="">Giới thiệu</a>
+      <a href="">Sản phẩm</a>
+      <a href="">Dịch vụ</a>
+      <a href="">Liên hệ</a>
+    </div>
+  </body>
+</html>
