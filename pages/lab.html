@@ -1,0 +1,329 @@
+<script type="text/javascript">
+  var gk_isXlsx = false;
+  var gk_xlsxFileLookup = {};
+  var gk_fileData = {};
+  function filledCell(cell) {
+    return cell !== "" && cell != null;
+  }
+  function loadFileData(filename) {
+    if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+      try {
+        var workbook = XLSX.read(gk_fileData[filename], { type: "base64" });
+        var firstSheetName = workbook.SheetNames[0];
+        var worksheet = workbook.Sheets[firstSheetName];
+
+        // Convert sheet to JSON to filter blank rows
+        var jsonData = XLSX.utils.sheet_to_json(worksheet, {
+          header: 1,
+          blankrows: false,
+          defval: "",
+        });
+        // Filter out blank rows (rows where all cells are empty, null, or undefined)
+        var filteredData = jsonData.filter((row) => row.some(filledCell));
+
+        // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+        var headerRowIndex = filteredData.findIndex(
+          (row, index) =>
+            row.filter(filledCell).length >=
+            filteredData[index + 1]?.filter(filledCell).length
+        );
+        // Fallback
+        if (headerRowIndex === -1 || headerRowIndex > 25) {
+          headerRowIndex = 0;
+        }
+
+        // Convert filtered JSON back to CSV
+        var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+        csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+        return csv;
+      } catch (e) {
+        console.error(e);
+        return "";
+      }
+    }
+    return gk_fileData[filename] || "";
+  }
+</script>
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guitar Shop - Lab Thực Hành</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <a href="../index.html" class="logo">
+            <img src="../assets/images/logo.png" alt="Guitar Shop Logo" />
+          </a>
+          <nav class="nav-menu">
+            <ul>
+              <li><a href="../index.html">Trang Chủ</a></li>
+              <li><a href="products.html">Tất Cả Sản Phẩm</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="lab.html" class="active">Lab Thực Hành</a></li>
+            </ul>
+          </nav>
+          <div class="header-actions">
+            <div class="search-bar">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Tìm kiếm sản phẩm..."
+              />
+              <button onclick="searchProducts()">
+                <i class="fas fa-search"></i>
+              </button>
+              <div id="searchResults" class="search-results"></div>
+            </div>
+            <a href="#" class="login-btn"
+              ><i class="fas fa-user"></i> Đăng Nhập</a
+            >
+            <a href="cart.html" class="cart-btn"
+              ><i class="fas fa-shopping-cart"></i> Giỏ Hàng (<span
+                id="cartCount"
+                >0</span
+              >)</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <section class="lab-section" style="margin-top: -70px">
+        <div class="container">
+          <h2>Lab Thực Hành</h2>
+          <div class="lab-grid" style="margin-top: 10px">
+            <div class="lab-card">
+              <h3>Lab01: HTML</h3>
+              <ul>
+                <li>
+                  <a href="../Web_Practice/Lab01_3.html" target="_blank"
+                    >Lab1_3</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab01_4.html" target="_blank"
+                    >Lab1_4</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="lab-card">
+              <h3>Lab02: Table & List</h3>
+              <ul>
+                <li>
+                  <a href="../Web_Practice/Lab02_1.html" target="_blank"
+                    >Lab2_1</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab02_2.html" target="_blank"
+                    >Lab2_2</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab02_3.html" target="_blank"
+                    >Lab2_3</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="lab-card">
+              <h3>Lab03: Frame & Form</h3>
+              <ul>
+                <li>
+                  <a href="../Web_Practice/Lab03_1.html" target="_blank"
+                    >Lab3_1</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab03_2.html" target="_blank"
+                    >Lab3_2</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab03_3.html" target="_blank"
+                    >Lab3_3</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="lab-card">
+              <h3>Lab04: CSS cơ bản</h3>
+              <ul>
+                <li>
+                  <a href="../Web_Practice/Lab04_1.html" target="_blank"
+                    >Lab4_1</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab04_2.html" target="_blank"
+                    >Lab4_2</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab04_3.html" target="_blank"
+                    >Lab4_3</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="lab-card">
+              <h3>Lab05: Các thuộc tính CSS</h3>
+              <ul>
+                <li>
+                  <a href="../Web_Practice/Lab05_1.html" target="_blank"
+                    >Lab5_1</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab05_2.html" target="_blank"
+                    >Lab5_2</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab05_3.html" target="_blank"
+                    >Lab5_3</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="lab-card">
+              <h3>Lab06: Xây dựng layout responsive bằng CSS</h3>
+              <ul>
+                <li>
+                  <a href="../Web_Practice/Lab06_1.html" target="_blank"
+                    >Lab6_1</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab06_2.html" target="_blank"
+                    >Lab6_2</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab06_3.html" target="_blank"
+                    >Lab6_3</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="lab-card">
+              <h3>Lab07: Javascript</h3>
+              <ul>
+                <li>
+                  <a href="../Web_Practice/Lab07_1.html" target="_blank"
+                    >Lab7_1</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab07_2.html" target="_blank"
+                    >Lab7_2</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="lab-card">
+              <h3>Lab08: Javascript nâng cao</h3>
+              <ul>
+                <li>
+                  <a href="../Web_Practice/Lab08_1.html" target="_blank"
+                    >Lab8_1</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab08_2.html" target="_blank"
+                    >Lab8_2</a
+                  >
+                </li>
+                <li>
+                  <a href="../Web_Practice/Lab08_3.html" target="_blank"
+                    >Lab8_3</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>GuitarSTU</h3>
+            <p>Họ tên: Trần Quang Thái</p>
+            <p>MSSV: DH52201421</p>
+            <p>Nơi thỏa mãn đam mê với âm nhạc</p>
+            <p>STUGUITAR Inc 2000</p>
+          </div>
+          <div class="footer-column">
+            <h3>Menu</h3>
+            <ul>
+              <li><a href="../index.html">Trang Chủ</a></li>
+              <li><a href="products.html">Tất Cả Sản Phẩm</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="lab.html">Lab Thực Hành</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Follow Us</h3>
+            <p class="social-links">
+              <a href="https://www.facebook.com/guitarclub.stu" target="_blank"
+                ><i class="fab fa-facebook"></i> Facebook</a
+              >
+            </p>
+            <p class="social-links">
+              <a
+                href="https://www.instagram.com/stu.guitarclub/"
+                target="_blank"
+                ><i class="fab fa-instagram"></i> Instagram</a
+              >
+            </p>
+          </div>
+          <div class="footer-column">
+            <h3>Địa Chỉ</h3>
+            <p>180 Cao Lỗ, Quận 8, TP Hồ Chí Minh</p>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.630277547896!2d106.67499637492903!3d10.762926189389755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1b7c3ed289%3A0xa06651894598e488!2s180%20Cao%20L%E1%BB%97%2C%20Ph%C6%B0%E1%BB%9Dng%204%2C%20Qu%E1%BA%ADn%208%2C%20Th%C3%A0nh%20ph%E1%BB%91%20H%E1%BB%93%20Ch%C3%AD%20Minh%20700000%2C%20Vietnam!5e0!3m2!1sen!2s!4v1731600731502!5m2!1sen!2s"
+              width="100%"
+              height="150"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <p class="footer-copyright">© 2025 Guitar Shop. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script src="../assets/js/products.js"></script>
+    <script src="../assets/js/blogs.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

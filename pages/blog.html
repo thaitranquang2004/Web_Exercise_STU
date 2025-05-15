@@ -49,8 +49,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Guitar Shop - Trang Chủ</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Guitar Shop - Blog</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -61,16 +61,16 @@
     <header class="header">
       <div class="container">
         <div class="header-content">
-          <a href="index.html" class="logo">
-            <img src="assets/images/logo.png" alt="Guitar Shop Logo" />
+          <a href="../index.html" class="logo">
+            <img src="../assets/images/logo.png" alt="Guitar Shop Logo" />
           </a>
           <nav class="nav-menu">
             <ul>
-              <li><a href="index.html" class="active">Trang Chủ</a></li>
-              <li><a href="pages/products.html">Tất Cả Sản Phẩm</a></li>
-              <li><a href="pages/blog.html">Blog</a></li>
-              <li><a href="pages/about.html">About Us</a></li>
-              <li><a href="pages/lab.html">Lab Thực Hành</a></li>
+              <li><a href="../index.html">Trang Chủ</a></li>
+              <li><a href="products.html">Tất Cả Sản Phẩm</a></li>
+              <li><a href="blog.html" class="active">Blog</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="lab.html">Lab Thực Hành</a></li>
             </ul>
           </nav>
           <div class="header-actions">
@@ -83,12 +83,11 @@
               <button onclick="searchProducts()">
                 <i class="fas fa-search"></i>
               </button>
-              <div id="searchResults" class="search-results"></div>
             </div>
             <a href="#" class="login-btn"
               ><i class="fas fa-user"></i> Đăng Nhập</a
             >
-            <a href="pages/cart.html" class="cart-btn"
+            <a href="cart.html" class="cart-btn"
               ><i class="fas fa-shopping-cart"></i> Giỏ Hàng (<span
                 id="cartCount"
                 >0</span
@@ -99,91 +98,19 @@
       </div>
     </header>
 
-    <!-- Banner -->
-    <section class="banner">
-      <div class="banner-slides">
-        <img src="assets/images/banner1.jpg" alt="Banner 1" class="active" />
-        <img src="assets/images/banner2.jpg" alt="Banner 2" />
-        <img src="assets/images/banner3.jpg" alt="Banner 3" />
-      </div>
-      <button class="banner-prev" onclick="changeSlide(-1)">&#10094;</button>
-      <button class="banner-next" onclick="changeSlide(1)">&#10095;</button>
-    </section>
-
-    <!-- Featured Products -->
-    <section class="featured-products" style="margin-top: -50px">
-      <div class="container">
-        <h2>Sản Phẩm Nổi Bật</h2>
-        <div
-          class="product-grid"
-          id="featuredProducts"
-          style="margin-top: 20px"
-        ></div>
-      </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section class="blog-section">
-      <div class="container">
-        <h2 style="margin-top: -20px">Blog Nổi Bật</h2>
-        <div
-          class="blog-grid"
-          id="featuredBlogs"
-          style="margin-top: 20px"
-        ></div>
-      </div>
-    </section>
-
-    <!-- Shop Description -->
-    <section class="shop-description">
-      <div class="container">
-        <h2>Về Guitar Shop</h2>
-        <p>
-          Chào mừng bạn đến với Guitar Shop - nơi mang đến những cây đàn guitar
-          chất lượng cao, phù hợp với mọi đam mê âm nhạc. Chúng tôi tự hào cung
-          cấp các sản phẩm từ những thương hiệu nổi tiếng, cùng với dịch vụ tận
-          tâm để bạn có trải nghiệm tuyệt vời nhất.
-        </p>
-      </div>
-    </section>
-
-    <!-- Facebook Posts -->
-    <section class="facebook-posts" style="margin-top: -50px">
-      <div class="container">
-        <div class="facebook-grid">
-          <iframe
-            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fguitarclub.stu%2Fposts%2Fpfbid0Na22i5TdZP8Fe6jCTYax4LfUvyyq8YLfjct67VSwVRW9rtu6YsPiu5dKvRDZ8SUrl&show_text=true"
-            width="100%"
-            height="500"
-            style="border: none; overflow: hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          ></iframe>
-          <iframe
-            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fguitarclub.stu%2Fposts%2Fpfbid0gFPhrvfc2CALbKixKSnf5XvcDtn5q8beUh9Hg5UPKYdRPt15KhgeBDxEG3JJuHxNl&show_text=true"
-            width="100%"
-            height="500"
-            style="border: none; overflow: hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          ></iframe>
-          <iframe
-            src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fguitarclub.stu%2Fposts%2Fpfbid02odpf8mbJaoPJLbY6MsQ7awYEcm7zwxq5uf6tfbX1DWQRdVyTgvH2bYoS9rrNPx9kl&show_text=true"
-            width="100%"
-            height="500"
-            style="border: none; overflow: hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          ></iframe>
+    <!-- Main Content -->
+    <main style="margin-top: 20px; margin-bottom: 30px">
+      <section class="all-blogs">
+        <div class="container">
+          <h2>Tất Cả Blog</h2>
+          <div
+            class="blog-grid"
+            id="featuredBlogs"
+            style="margin-top: 20px"
+          ></div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -244,11 +171,25 @@
       <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Notification -->
-    <div id="notification" class="notification"></div>
-
-    <script src="assets/js/products.js"></script>
-    <script src="assets/js/blogs.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/products.js"></script>
+    <script src="../assets/js/blogs.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const blogGrid = document.getElementById("featuredBlogs");
+        blogGrid.innerHTML = blogs
+          .map(
+            (blog) => `
+                <div class="blog-card">
+                    <img src="${blog.image}" alt="${blog.title}">
+                    <h3>${blog.title}</h3>
+                    <a href="blog-detail.html?id=${blog.id}">Đọc thêm</a>
+                </div>
+            `
+          )
+          .join("");
+        updateCartCount();
+      });
+    </script>
   </body>
 </html>
