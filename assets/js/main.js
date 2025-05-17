@@ -260,3 +260,30 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(() => changeSlide(1), 5000);
   }
 });
+
+// Hamburger Menu Toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+  const headerActions = document.querySelector(".header-actions");
+
+  if (hamburger && navMenu && headerActions) {
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+      headerActions.classList.toggle("active");
+      // Đổi icon khi menu mở/đóng
+      hamburger.innerHTML = navMenu.classList.contains("active")
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+    });
+
+    // Đóng menu khi click vào link
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+        headerActions.classList.remove("active");
+        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+  }
+});
