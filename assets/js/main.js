@@ -184,7 +184,7 @@ function showNotification(message, isError = false) {
 function searchProducts() {
   const query = document.getElementById("searchInput").value.toLowerCase();
   const searchResults = document.getElementById("searchResults");
-  if (query.length < 2) {
+  if (query.length < 1) {
     searchResults.style.display = "none";
     return;
   }

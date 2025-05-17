@@ -109,6 +109,7 @@ body {
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  color: black;
 }
 
 .search-result-item:hover {
@@ -485,6 +486,15 @@ body {
   .checkout-btn {
     width: 100%;
   }
+
+  .blog-detail-grid {
+    flex-direction: column;
+  }
+
+  .product-image,
+  .product-content {
+    flex: 1;
+  }
 }
 
 /* Lab Section */
@@ -517,4 +527,101 @@ body {
   min-width: 300px;
   max-width: 400px;
   border-radius: 8px;
+}
+
+/* Blog Detail */
+.blog-detail {
+  padding: 80px 0 50px;
+}
+
+.blog-detail-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.blog-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.blog-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.blog-content {
+  flex: 2;
+  min-width: 300px;
+}
+
+.blog-content h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.blog-meta {
+  color: #555;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.blog-text p {
+  margin-bottom: 15px;
+}
+
+/* Product Detail */
+.product-detail {
+  padding: 80px 0 50px;
+}
+
+.product-detail-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.product-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.product-content {
+  flex: 2;
+  min-width: 300px;
+}
+
+.product-content h2 {
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.product-price {
+  color: #8b0000;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-description p {
+  margin-bottom: 15px;
+}
+
+.product-description ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.product-description ul li {
+  margin-bottom: 10px;
 }

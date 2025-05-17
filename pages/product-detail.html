@@ -49,6 +49,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo.png" />
     <title>Guitar Shop - Chi Tiết Sản Phẩm</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link
@@ -100,10 +101,38 @@
     </header>
 
     <!-- Main Content -->
-    <main style="margin-top: 20px; margin-bottom: 30px">
+    <main>
       <section class="product-detail">
         <div class="container">
-          <div id="productDetail"></div>
+          <div class="product-detail-grid">
+            <!-- Cột trái: Hình ảnh -->
+            <div class="product-image">
+              <img src="../assets/images/product1.jpg" alt="Product Image" />
+            </div>
+            <!-- Cột phải: Thông tin sản phẩm -->
+            <div class="product-content">
+              <h2>Đàn Guitar Yamaha FG800</h2>
+              <p class="product-price">7,500,000 VNĐ</p>
+              <div class="product-description">
+                <p>
+                  Yamaha FG800 là cây đàn guitar acoustic lý tưởng cho người mới
+                  bắt đầu và người chơi trung cấp. Với chất liệu gỗ vân sam cao
+                  cấp và thiết kế tinh tế, FG800 mang lại âm thanh ấm áp, rõ
+                  ràng.
+                </p>
+                <p><strong>Thông số kỹ thuật:</strong></p>
+                <ul>
+                  <li>Mặt trước: Gỗ vân sam</li>
+                  <li>Mặt sau và hông: Gỗ Nato</li>
+                  <li>Cần đàn: Gỗ Nato</li>
+                  <li>Chiều dài thang âm: 650mm</li>
+                </ul>
+              </div>
+              <button class="add-to-cart" onclick="addToCart(1)">
+                Thêm vào giỏ
+              </button>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -116,8 +145,8 @@
             <h3>GuitarSTU</h3>
             <p>Họ tên: Trần Quang Thái</p>
             <p>MSSV: DH52201421</p>
-            <p>Nơi thỏa mãn đam mê với âm nhạc</p>
-            <p>STUGUITAR Inc 2000</p>
+            <p>Lớp: D22_TH05</p>
+            <p>Nhóm 12 / Thứ 3 ca 4</p>
           </div>
           <div class="footer-column">
             <h3>Menu</h3>
@@ -176,31 +205,23 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
-        const productId = parseInt(urlParams.get("id"));
-        const product = products.find((p) => p.id === productId);
-        const productDetail = document.getElementById("productDetail");
+        const productId = urlParams.get("id");
+        const product = products.find((p) => p.id == productId);
         if (product) {
-          productDetail.innerHTML = `
-                    <div class="product-detail-content">
-                        <img src="${getImagePath(product.image)}" alt="${
-            product.name
-          }">
-                        <div class="product-detail-info">
-                            <h2>${product.name}</h2>
-                            <p>Giá: ${product.price.toLocaleString(
-                              "vi-VN"
-                            )} VNĐ</p>
-                            <p>${product.description}</p>
-                            <button class="add-to-cart" onclick="addToCart(${
-                              product.id
-                            })">Thêm vào giỏ</button>
-                        </div>
-                    </div>
-                `;
-        } else {
-          productDetail.innerHTML = "<p>Sản phẩm không tồn tại.</p>";
+          document.querySelector(".product-image img").src = getImagePath(
+            product.image
+          );
+          document.querySelector(".product-content h2").textContent =
+            product.name;
+          document.querySelector(
+            ".product-price"
+          ).textContent = `${product.price.toLocaleString("vi-VN")} VNĐ`;
+          document.querySelector(".product-description").innerHTML =
+            product.description || "Không có mô tả.";
+          document
+            .querySelector(".add-to-cart")
+            .setAttribute("onclick", `addToCart(${product.id})`);
         }
-        updateCartCount();
       });
     </script>
   </body>

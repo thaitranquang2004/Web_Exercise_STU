@@ -49,6 +49,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo.png" />
     <title>Guitar Shop - Chi Tiết Blog</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link
@@ -100,12 +101,36 @@
 
     <!-- Main Content -->
     <main>
-      <section
-        class="blog-detail"
-        style="margin-top: 130px; margin-bottom: 50px"
-      >
+      <section class="blog-detail">
         <div class="container">
-          <div id="blogDetail"></div>
+          <div class="blog-detail-grid">
+            <!-- Cột trái: Hình ảnh -->
+            <div class="blog-image">
+              <img src="../assets/images/blog1.jpg" alt="Blog Image" />
+            </div>
+            <!-- Cột phải: Thông tin blog -->
+            <div class="blog-content">
+              <h2>Cách Chọn Guitar Phù Hợp Cho Người Mới Bắt Đầu</h2>
+              <p class="blog-meta">Tác giả: Guitar Shop</p>
+              <div class="blog-text">
+                <p>
+                  Chọn một cây đàn guitar phù hợp là bước đầu tiên quan trọng
+                  cho người mới học. Có nhiều loại guitar như acoustic, classic,
+                  và điện, mỗi loại phù hợp với một phong cách chơi khác nhau.
+                </p>
+                <p>
+                  Trong bài viết này, chúng tôi sẽ hướng dẫn bạn cách chọn
+                  guitar dựa trên ngân sách, phong cách âm nhạc, và kích thước
+                  phù hợp với cơ thể. Ngoài ra, bạn cũng sẽ tìm hiểu về các
+                  thương hiệu uy tín như Yamaha, Fender, và Taylor.
+                </p>
+                <p>
+                  Hãy bắt đầu hành trình âm nhạc của bạn với cây đàn phù hợp
+                  nhất!
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -118,8 +143,8 @@
             <h3>GuitarSTU</h3>
             <p>Họ tên: Trần Quang Thái</p>
             <p>MSSV: DH52201421</p>
-            <p>Nơi thỏa mãn đam mê với âm nhạc</p>
-            <p>STUGUITAR Inc 2000</p>
+            <p>Lớp: D22_TH05</p>
+            <p>Nhóm 12 / Thứ 3 ca 4</p>
           </div>
           <div class="footer-column">
             <h3>Menu</h3>
@@ -172,24 +197,22 @@
     <script src="../assets/js/products.js"></script>
     <script src="../assets/js/blogs.js"></script>
     <script src="../assets/js/main.js"></script>
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const urlParams = new URLSearchParams(window.location.search);
-        const blogId = parseInt(urlParams.get("id"));
-        const blog = blogs.find((b) => b.id === blogId);
-        const blogDetail = document.getElementById("blogDetail");
+        const blogId = urlParams.get("id");
+        const blog = blogs.find((b) => b.id == blogId);
         if (blog) {
-          blogDetail.innerHTML = `
-                    <div class="blog-detail-content">
-                        <img src="${blog.image}" alt="${blog.title}">
-                        <h2>${blog.title}</h2>
-                        <p>${blog.content}</p>
-                    </div>
-                `;
-        } else {
-          blogDetail.innerHTML = "<p>Blog không tồn tại.</p>";
+          document.querySelector(".blog-image img").src = getImagePath(
+            blog.image
+          );
+          document.querySelector(".blog-content h2").textContent = blog.title;
+          document.querySelector(".blog-meta").textContent = `Tác giả: ${
+            blog.author || "Guitar Shop"
+          }`;
+          document.querySelector(".blog-text").innerHTML = blog.content;
         }
-        updateCartCount();
       });
     </script>
   </body>
